@@ -31,4 +31,6 @@ urlpatterns = [
     ),
     path('api/user/', include('user.urls')),
     path('api/task/', include('task.urls')),
+    path('api/leave/', include('leave.urls')),
+    path('api/check/', include('check.urls')),
 ]

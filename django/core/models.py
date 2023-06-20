@@ -60,3 +60,34 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class EventType(models.Model):
+
+    event_type = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.event_type
+
+
+class Event(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    event_title = models.CharField(max_length=255, blank=True)
+    event_description = models.TextField(blank=True)
+    event_status = models.BooleanField(default=False, blank=True, null=True)
+    event_type = models.ForeignKey(
+        EventType, on_delete=models.CASCADE)
+    event_date = models.DateTimeField(blank=True, null=True)
+    event_end = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.event_title
+
+
+class CheckIn(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    check_status = models.BooleanField(default=False, blank=True, null=True)
+    check_in_time = models.DateTimeField(auto_now_add=True)
+    check_out_time = models.DateTimeField(blank=True, null=True)
