@@ -8,7 +8,7 @@ from check import views
 
 router = DefaultRouter()
 
-router.register('checks', views.CheckViewSets)
+router.register('', views.CheckViewSets)
 
 app_name = 'check'
 

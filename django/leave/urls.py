@@ -8,7 +8,7 @@ from leave import views
 
 router = DefaultRouter()
 
-router.register('leaves', views.EventViewSets)
+router.register('', views.EventViewSets)
 
 app_name = 'leave'
 
