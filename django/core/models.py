@@ -8,6 +8,8 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 
+from django.conf import settings
+
 
 class UserManager(BaseUserManager):
     """Manager for users."""
@@ -42,3 +44,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class Task(models.Model):
+    """Task object. """
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    title = models.CharField(max_length=255, blank=True)
+    content = models.TextField(blank=True)
+    date_start = models.DateField(auto_now_add=True)
+    date_end = models.DateField(blank=True, null=True)
+    time_start = models.TimeField(auto_now_add=True)
+    time_end = models.TimeField(blank=True, null=True)
+    task_status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
