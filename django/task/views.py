@@ -14,8 +14,8 @@ class TaskViewSets(viewsets.ModelViewSet):
     """ View for manage task APIs. """
     serializer_class = serializers.TaskSerializer  # TaskDetailSerializer
     queryset = Task.objects.all()
-    authentication_classes = [TokenAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         return self.queryset.filter(user=self.request.user).order_by('-id')

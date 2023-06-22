@@ -31,6 +31,9 @@ migrations:
 
 migrations-migrate: .migrations .migrate
 
+build:
+	docker-compose build
+
 build-backend:
 	docker-compose build django celery
 
@@ -101,12 +104,6 @@ restore-from-dev: stop-quiet reset-db
 	echo '*** Database restoration completed'
 	echo '----------------------------------'
 
-add-memo-type:
-	cd django && cd apps && cookiecutter https://gitlab.com/siriporn.p/memo-type-template
-
-%:
-	@:
-
 bash:
 	docker-compose run --rm django sh -c "bash"
 
@@ -117,7 +114,7 @@ compile-message:
 	docker-compose run --rm django sh -c  "python manage.py compilemessages"
 
 startapp:
-	mkdir ./django-v2/apps/$(filter-out $@,$(MAKECMDGOALS))
+	mkdir ./django/apps/$(filter-out $@,$(MAKECMDGOALS))
 	docker-compose exec django python manage.py startapp $(filter-out $@,$(MAKECMDGOALS)) apps/$(filter-out $@,$(MAKECMDGOALS))
 
 add-host:

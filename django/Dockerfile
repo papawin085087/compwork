@@ -8,7 +8,7 @@ COPY ./requirements.txt /tmp/requirements.txt
 
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 
-COPY ./django /django
+COPY . /django
 
 WORKDIR /django
 
