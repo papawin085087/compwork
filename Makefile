@@ -119,3 +119,6 @@ startapp:
 
 add-host:
 	sudo bash ./scripts/manage-host.sh addhost host.docker.internal 127.0.0.1
+
+createsuperuser:
+	docker-compose run --rm app sh -c "python manage.py createsuperuser"

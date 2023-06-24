@@ -43,3 +43,6 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Task)
+admin.site.register(models.EventType)
+admin.site.register(models.Event)
+admin.site.register(models.CheckIn)
