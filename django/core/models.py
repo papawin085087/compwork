@@ -76,7 +76,7 @@ class EventType(models.Model):
 class Event(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    event_title = models.CharField(max_length=255, blank=True)
+    event_title = models.CharField(max_length=255, blank=True, default='sick')
     event_description = models.TextField(blank=True)
     event_status = models.BooleanField(default=False, blank=True, null=True)
     event_type = models.ForeignKey(
