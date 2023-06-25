@@ -13,10 +13,10 @@ class CheckViewSets(viewsets.ModelViewSet):
     # authentication_classes = [TokenAuthentication]
     # permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        if self.request.user.is_superuser == True:
-            return self.queryset
-        return self.queryset.filter(user=self.request.user).order_by('-id')
+    # def get_queryset(self):
+    #     if self.request.user.is_superuser == True:
+    #         return self.queryset
+    #     return self.queryset.filter(user=self.request.user).order_by('-id')
 
     def perform_create(self, serializer):
         """ Create a new task """

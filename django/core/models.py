@@ -80,7 +80,7 @@ class Event(models.Model):
     event_description = models.TextField(blank=True)
     event_status = models.BooleanField(default=False, blank=True, null=True)
     event_type = models.ForeignKey(
-        EventType, on_delete=models.CASCADE)
+        EventType, on_delete=models.CASCADE, blank=True, null=True)
     event_date = models.DateTimeField(blank=True, null=True)
     event_end = models.DateTimeField(blank=True, null=True)
 
