@@ -1,7 +1,7 @@
 """
 Views for the user API.
 """
-from rest_framework import generics, authentication, permissions
+from rest_framework import generics, authentication, permissions, viewsets
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from core.models import User
@@ -33,6 +33,10 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
         """Retrieve and return the authenticated user."""
         return self.request.user
 
-class UserListView(generics.ListAPIView):
+# class UserListView(generics.ListAPIView):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
