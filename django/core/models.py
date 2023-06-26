@@ -58,7 +58,7 @@ class Task(models.Model):
     date_start = models.DateField(auto_now_add=True)
     date_end = models.DateField(blank=True, null=True)
     time_start = models.TimeField(auto_now_add=True)
-    time_end = models.TimeField(blank=True, null=True)
+    time_end = models.TimeField(blank=True, null=True, auto_now=True)
     task_status = models.BooleanField(default=False)
 
     def __str__(self):
@@ -91,6 +91,6 @@ class Event(models.Model):
 class CheckIn(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    check_status = models.BooleanField(default=False, blank=True, null=True)
+    check_status = models.BooleanField(default=True, blank=True, null=True)
     check_in_time = models.DateTimeField(auto_now_add=True)
-    check_out_time = models.DateTimeField(blank=True, null=True)
+    check_out_time = models.DateTimeField(auto_now=True)
