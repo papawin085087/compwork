@@ -16,4 +16,4 @@ class CheckSerializer(serializers.ModelSerializer):
                     'check_in_time', 'check_out_time', 'check_status']
 
         read_only_fields = ['id', 'user',  'owner_name', 'owner_lname', 'owner_email', 'owner_employee', 'owner_team',
-                            'check_in_time']
+                            'check_in_time', 'check_out_time']
