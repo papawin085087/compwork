@@ -56,7 +56,7 @@ class Task(models.Model):
     title = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     date_start = models.DateField(auto_now_add=True)
-    date_end = models.DateField(blank=True, null=True)
+    date_end = models.DateField(blank=True, null=True, auto_now=True)
     time_start = models.TimeField(auto_now_add=True)
     time_end = models.TimeField(blank=True, null=True, auto_now=True)
     task_status = models.BooleanField(default=False)
